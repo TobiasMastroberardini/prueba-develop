@@ -880,15 +880,15 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   background: #0b0b0d;
   transition: left 0.3s ease;
   overflow-y: auto;
-  z-index: 1002;
+  z-index: 1002; /* Debajo del header pero encima del overlay */
   font-size: 13px;
   font-weight: 500;
   font-family: Roboto;
-  padding-top: 60px; /* Espacio para el header */
+  padding-top: 60px;
 }
 
 /* Sidebar visible cuando el checkbox está checked */
-#menu-toggle:checked ~ #sidebar-container .sidebar {
+#menu-toggle:checked + #sidebar-container .sidebar {
   left: 0;
 }
 
@@ -934,14 +934,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
-  z-index: 999}
+  z-index: 1001; /* Encima del contenido pero debajo del sidebar */
+}
 
 /* Cuando está activo */
 #menu-toggle:checked ~ .overlay {
   opacity: 1;
   pointer-events: auto;
 }
-
 
 /* Estilo para el label del menú hamburguesa */
 label[for="menu-toggle"] {
